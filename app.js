@@ -2,12 +2,16 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const Blog = require('./models/blog');
+require('dotenv').config();
 
 //express app
 const app = express();
 
+const PORT = process.env.PORT || 3000;
+
 //connect to MongoDB
-const dbURI = 'mongodb+srv://boggShrestha:mounT357@boggmongodb.grcfe.mongodb.net/boggMongoDb?retryWrites=true&w=majority&appName=boggMongoDb' ;
+//can use local host as well here
+const dbURI = process.env.DB_URL;
 mongoose.connect(dbURI)
     //.then((result)=> console.log('connected to db'))
     .then((result)=> app.listen(3000))
@@ -19,6 +23,11 @@ app.set('views', 'myviews');
 
 //listen for requests
 //app.listen(3000);
+/*
+app.listen(PORT, ()=>{
+    console.log('Listening on port 3000');
+})
+*/    
 
 
 
@@ -189,3 +198,4 @@ app.use((req, res)=>{
 }); 
 
 **/
+//comment added
