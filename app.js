@@ -23,9 +23,11 @@ app.set('views', 'myviews');
 
 //listen for requests
 //app.listen(3000);
+/** 
 app.listen(PORT, ()=>{
     console.log('Listening on port 3000');
 })
+**/
 
 //middleware and static files
 app.use(express.static('public'));
